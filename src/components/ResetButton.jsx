@@ -7,8 +7,11 @@ function ResetButton({ setCount }) {
   };
 
   return (
-    <button onClick={handleClick} className='reset-btn'>
-      <ResetIcon className='reset-btn-icon' />
+    <button
+      onClick={handleClick}
+      className='p-2 transition-all opacity-50 hover:opacity-80 focus:opacity-80 duration-400'
+    >
+      <ResetIcon className='text-[rgb(22,34,32)] h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10' />
     </button>
   );
 }

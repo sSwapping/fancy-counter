@@ -4,6 +4,7 @@ import CurrentCount from "./CurrentCount";
 import ResetButton from "./ResetButton";
 import Title from "./Title";
 import Button from "./Button";
+import ShortcutsButton from "./ShortcutsInfo";
 
 function Card() {
   const [count, setCount] = useState(0);
@@ -37,12 +38,17 @@ function Card() {
     window.addEventListener("keydown", handleKeydown);
 
     return () => {
-      window.removeEventListener("keydown", handleKeydown); // cleanup function
+      window.removeEventListener("keydown", handleKeydown);
     };
   }, [count, blocked]);
 
   return (
-    <div className={`card ${blocked ? "card--limit" : ""}`}>
+    <div
+      className={`bg-custom-teal w-[90vw] max-w-[27rem] h-[85vh] max-h-[615px] rounded-xl shadow-[0_25px_121px_rgba(0,0,0,0.5)] flex flex-col items-center transition-all duration-400 relative ${
+        blocked ? "bg-custom-dark-teal" : ""
+      }`}
+    >
+      <ShortcutsButton />
       <Title blocked={blocked} />
       <CurrentCount currentCount={count} />
       <ResetButton setCount={setCount} />
